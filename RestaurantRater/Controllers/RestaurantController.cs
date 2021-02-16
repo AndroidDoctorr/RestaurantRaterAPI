@@ -31,7 +31,7 @@ namespace RestaurantRater.Controllers
 
         // At some point, refactor this to be async, talk about async and await, threading etc. (service method will also need to be refactored to be async in this case)
 
-        public IActionResult CreateRestaurant([FromBody] RestaurantCreate model)
+        public IActionResult CreateRestaurant([FromForm] RestaurantCreate model)
         {
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);

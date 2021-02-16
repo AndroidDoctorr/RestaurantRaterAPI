@@ -7,6 +7,7 @@ namespace RestaurantRater.Models.Rating
 {
     public class RatingDetail
     {
+        public int Id { get; set; }
         public string Restaurant { get; set; }
         public double Stars { get; set; }
 

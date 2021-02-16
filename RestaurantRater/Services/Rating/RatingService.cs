@@ -47,6 +47,7 @@ namespace RestaurantRater.Services.Rating
             {
                 Restaurant = rating.Restaurant.Name,
                 Stars = rating.Stars,
+                Id = rating.Id,
             };
         }
 
@@ -60,6 +61,7 @@ namespace RestaurantRater.Services.Rating
             {
                 Stars = r.Stars,
                 Restaurant = r.Restaurant.Name,
+                Id = r.Id,
             }).ToList();
         }
 

@@ -26,7 +26,7 @@ namespace RestaurantRater.Services
             {
                 Name = model.Name,
                 Location = model.Location,
-                Rating = model.Rating
+                Rating = model.Rating,
             };
 
             _context.Restaurants.Add(newRestaurant);
@@ -61,6 +61,7 @@ namespace RestaurantRater.Services
                 Name = restaurant.Name,
                 Location = restaurant.Location,
                 Rating = restaurant.Rating,
+                Id = restaurant.Id,
             };
         }
 
@@ -70,6 +71,7 @@ namespace RestaurantRater.Services
                 Name = r.Name,
                 Location = r.Location,
                 Rating = r.Rating,
+                Id = r.Id,
             }).ToList();
         }
 
