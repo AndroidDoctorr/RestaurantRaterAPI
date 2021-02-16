@@ -17,7 +17,7 @@ namespace RestaurantRater.Data
         }
         // Ctrl . to bring in using statement (RestaurantRater.Data.Entities)
         public DbSet<RestaurantEntity> Restaurants { get; set; }
-        // Add this in after we've set up models and services for restaurants
+        // Add this in after we've set up models and services for Restaurants
         public DbSet<RatingEntity> Ratings { get; set; }
     }
 }

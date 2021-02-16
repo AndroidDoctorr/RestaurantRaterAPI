@@ -29,7 +29,16 @@ namespace RestaurantRater
 
         public void ConfigureServices(IServiceCollection services)
         {
-            // 3: Set up connection string to database
+            // 3: Set up connection string to database (also add the connection string to appsettings.json)
+
+            // Also need to install Core tools for migrations
+
+            // Install-Package Microsoft.EntityFrameworkCore.Tools
+
+            // Then once the connection string is set up, we need an initial migration
+
+            // add-migration initial
+            // update-database
 
             var connectionString = Configuration.GetConnectionString("DefaultConnection");
 
