@@ -11,7 +11,8 @@ namespace RestaurantRater.Data.Entities
         // 7: Set up the Restaurant Data Model (or Entity Model)
         // Use this to set up the DB Context...
 
-        // Since this property is called Id, it doesn't need this annotation, but just for clarity
+        // Since this property is called Id (ID, RestaurantEntityId and  would also work), it doesn't need this annotation, but just for clarity
+        // https://www.learnentityframeworkcore.com/conventions#:~:text=The%20convention%20for%20a%20foreign,primary%20key%20property%20name%3EId
         [Key]
         public int Id { get; set; }
         public string Name { get; set; }

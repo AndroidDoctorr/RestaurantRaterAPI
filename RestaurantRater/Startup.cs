@@ -9,6 +9,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using RestaurantRater.Data;
 using RestaurantRater.Services;
+using RestaurantRater.Services.Rating;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -26,10 +27,8 @@ namespace RestaurantRater
 
         public IConfiguration Configuration { get; }
 
-        // Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-
             // 3: Set up connection string to database
 
             var connectionString = Configuration.GetConnectionString("DefaultConnection");
@@ -42,23 +41,24 @@ namespace RestaurantRater
 
             // 5: Add our application DB context (We will create it in an upcoming step, or you can skip ahead to creating the Restaurant Entity, then the ApplicationDbContext)
 
+            // Install these packages so we can use dependency injection with our services and have EFC set up a SQL server for us
             // Install-Package Microsoft.Extensions.DependencyInjection
             // Install-Package Microsoft.EntityFrameworkCore.SqlServer
 
             services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(connectionString));
 
-            // 6: Add Services (this allows us to use dependency injection with our services so we don't have to instantiate our dbContexts in them. They are interchangeable this way)
+            // 6: Add Services (this allows us to use dependency injection with our services so we don't have to instantiate our db contexts within them. They are interchangeable this way)
 
-            // These classes don't exist yet - you can create them first instead if you like. Otherwise move on to the data model if that doesn't exist yet
+            // These classes don't exist yet - you can create them first instead if you like. Otherwise move on to the Restaurant data model if that doesn't exist yet...
 
             services.AddScoped<IRestaurantService, RestaurantService>();
+            services.AddScoped<IRatingService, RatingService>();
 
-            // Next, do this same process for the Rating model...
+            // Once the models and service methods are set up for Restaurants, do this same process for the Rating model...
 
             services.AddControllers();
         }
 
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())
