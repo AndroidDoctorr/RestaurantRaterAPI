@@ -11,13 +11,13 @@ namespace RestaurantRater
 {
     public class Program
     {
-        // 0: Explain what's happening here - Main calls CreateHostBuilder which creates an IHostBuilder, which then builds the application, and then Run() is called on the application that Build() returns.
+        // 0: Explain what's happening here - Main calls CreateHostBuilder which creates a builder, which then builds the application, and then Run() is called on the application that Build() returns.
 
         public static void Main(string[] args)
         {
             CreateHostBuilder(args).Build().Run();
         }
-        // 1: CreateHostBuilder returns Host.CreateDefaultBuilder() which builds the web application using our Startup class...
+        // 1: CreateHostBuilder returns the builder which builds the web application using our Startup class...
         public static IHostBuilder CreateHostBuilder(string[] args) =>
             Host.CreateDefaultBuilder(args)
                 .ConfigureWebHostDefaults(webBuilder =>

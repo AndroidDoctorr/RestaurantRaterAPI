@@ -42,7 +42,7 @@ namespace RestaurantRater.Controllers
             return BadRequest("Restaurant could not be created.");
         }
 
-        // This is technically unnecessary but good practice - public methods in a controller are assumed to be GET actions (I think this is still true - test)
+        // This annotation is technically unnecessary but good practice - public methods in a controller are assumed to be GET actions (I think this is still true - test)
         [HttpGet]
         public IActionResult GetRestaurant(int id)
         {
