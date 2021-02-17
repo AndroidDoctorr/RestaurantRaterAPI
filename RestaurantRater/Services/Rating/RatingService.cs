@@ -32,17 +32,14 @@ namespace RestaurantRater.Services.Rating
                 Stars = r.Stars,
                 // Here we can use our virtual property to dig a little deeper and get the name of the Restaurant
                 Restaurant = r.Restaurant.Name,
+                Id = r.Id,
             }).ToList();
         }
 
         public RatingDetail GetRatingById(int id)
         {
             var rating = _context.Ratings.Find(id);
-            if (rating == null)
-            {
-                // Let's play with custom exceptions a little - see if they can guess what status code this will give (should be 500)
-                throw new Exception("Rating not found!");
-            }
+
             return new RatingDetail()
             {
                 Restaurant = rating.Restaurant.Name,
