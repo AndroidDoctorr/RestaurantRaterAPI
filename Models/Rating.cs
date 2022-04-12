@@ -16,5 +16,6 @@ namespace RestaurantRaterAPI.Models
         public double CleanlinessScore { get; set; }
         [Required]
         public double AtmosphereScore { get; set; }
+        public virtual Restaurant Restaurant { get; set; }
     }
 }
